@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Cortec Middle East | Partner Portal - Clickable Prototype</title>
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<div class="proto-banner">PROTOTYPE - for internal review only. All data shown is sample data.</div>
+
+<!-- LOGIN -->
+<section id="login">
+  <div class="login-left">
+    <div class="brand">CORTEC<small>MIDDLE EAST</small></div>
+    <div>
+      <h1>Partner Portal</h1>
+      <p>The official, secure workspace for approved Cortec Middle East partners. Learn, specify, deliver and grow with VpCI®, MCI® and CorroLogic® technologies - backed by Cortec technical experts.</p>
+      <div class="feat"><span>Knowledge Hub</span><span>Partner Academy</span><span>Opportunity Centre</span><span>Technical Support</span><span>Marketing Centre</span></div>
+    </div>
+    <small style="opacity:.6;position:relative;z-index:1">partners.cortec-me.com · Invitation-only access</small>
+  </div>
+  <div class="login-right">
+    <div class="login-card">
+      <h2>Partner sign in</h2>
+      <p class="sub" style="margin:0">Use the account from your invitation email.</p>
+      <label>Business email</label><input id="email" value="ahmed@gulfintegrity.ae">
+      <label>Password</label><input type="password" value="password123">
+      <label>Preview as (prototype only)</label>
+      <div class="roles">
+        <button class="role active" data-role="CSP">CSP Partner</button>
+        <button class="role" data-role="CIA">CIA Member</button>
+        <button class="role" data-role="ADMIN">Cortec Admin</button>
+      </div>
+      <button class="btn" style="width:100%;margin-top:20px" onclick="goMfa()">Continue</button>
+      <div id="mfa" style="display:none">
+        <label>Verification code (sent to your authenticator)</label>
+        <input value="482 913" style="letter-spacing:4px;text-align:center;font-weight:700">
+        <button class="btn" style="width:100%;margin-top:12px" onclick="signIn()">Verify &amp; sign in</button>
+      </div>
+      <div class="notice">🔒 Access is by Cortec invitation only. Not a partner yet? <a href="#" onclick="openModal('apply');return false" style="color:var(--green);font-weight:600">Request partnership</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- APP -->
+<section id="app">
+  <header class="top">
+    <div class="brand">CORTEC<small>MIDDLE EAST · PARTNER PORTAL</small></div>
+    <div class="search"><input id="gsearch" placeholder="Search products, applications, documents..." onkeydown="if(event.key==='Enter'){go('knowledge');document.getElementById('kq').value=this.value;renderDocs()}"></div>
+    <div class="top-right">
+      <button class="bell" onclick="toggleDrawer()">🔔<b id="ncount">3</b></button>
+      <span id="uname" style="font-size:13px">Ahmed Hassan</span>
+      <div class="avatar" id="uav">AH</div>
+      <button class="btn sm ghost" onclick="logout()">Sign out</button>
+    </div>
+  </header>
+  <div class="layout">
+    <aside class="side">
+      <div class="tag">WORKSPACE</div>
+      <button class="nav active" data-p="home"><i>⌂</i>Home</button>
+      <button class="nav" data-p="knowledge"><i>📚</i>Knowledge Hub</button>
+      <button class="nav" data-p="academy"><i>🎓</i>Partner Academy</button>
+      <button class="nav" data-p="opps"><i>📈</i>Opportunities</button>
+      <button class="nav" data-p="support"><i>🛠</i>Technical Support</button>
+      <button class="nav" data-p="marketing"><i>🎨</i>Marketing Centre</button>
+      <button class="nav" data-p="community"><i>💬</i>Community</button>
+      <div class="tag">ACCOUNT</div>
+      <button class="nav" data-p="reports"><i>📊</i>Reports</button>
+      <button class="nav" data-p="org"><i>🏢</i>My Organisation</button>
+      <button class="nav admin-only" data-p="admin" style="display:none"><i>⚙</i>Admin Console</button>
+      <div class="partner-badge" id="badge"></div>
+    </aside>
+    <main>
+
+<!-- HOME -->
+<div class="page show" id="p-home">
+  <div class="hero">
+    <div><h2 id="welcome">Welcome back, Gulf Integrity Services</h2><p id="welcomeSub">Certified Channel Service Provider · UAE &amp; Oman</p></div>
+    <div class="qa">
+      <button class="btn" onclick="openModal('opp')">+ Register opportunity</button>
+      <button class="btn" onclick="openModal('ticket')">Ask a technical question</button>
+      <button class="btn" onclick="go('marketing')">Campaign kits</button>
+    </div>
+  </div>
+  <div class="grid g4" style="margin-bottom:16px">
+    <div class="card kpi"><div class="n" id="k-tix">2</div><div class="l">Open support requests</div><div class="bar"><span style="width:40%"></span></div></div>
+    <div class="card kpi"><div class="n">78%</div><div class="l">Training complete</div><div class="bar"><span style="width:78%"></span></div></div>
+    <div class="card kpi"><div class="n" id="k-opp">4</div><div class="l">Active opportunities</div><div class="bar"><span style="width:60%"></span></div></div>
+    <div class="card kpi"><div class="n">Gold</div><div class="l">Partner status · renews Mar 2027</div><div class="bar"><span style="width:85%"></span></div></div>
+  </div>
+  <div class="grid g2">
+    <div class="card"><h3>Recommended for you <button class="btn sm ghost" onclick="go('knowledge')">View all</button></h3>
+      <div class="list-item"><div class="ic">🎓</div><div class="li-main"><b>VpCI® Equipment Preservation - Module 4</b><small>Partner Academy · 25 min · continue where you left off</small></div><button class="btn sm" onclick="go('academy')">Resume</button></div>
+      <div class="list-item"><div class="ic">PDF</div><div class="li-main"><b>Hydrotesting Corrosion Protection - Method Statement v3.2</b><small>Updated 3 days ago · CSP only</small></div><span class="pill p-blue">Updated</span></div>
+      <div class="list-item"><div class="ic">▶</div><div class="li-main"><b>Technical webinar: Tank bottom protection with VpCI®</b><small>Live · 26 Nov 2026 · 11:00 GST</small></div><button class="btn sm ghost" onclick="toast('Registered for webinar - calendar invite sent')">Register</button></div>
+      <div class="list-item"><div class="ic">★</div><div class="li-main"><b>Case study: Offshore rig layup preservation</b><small>Oil &amp; Gas · ready for client presentations</small></div><span class="pill p-green">New</span></div>
+    </div>
+    <div class="card"><h3>My tasks</h3>
+      <div class="list-item"><input type="checkbox" style="width:auto" onchange="taskDone(this)"><div class="li-main"><b>Upload site photos - ADNOC tank farm</b><small>Due tomorrow</small></div><span class="pill p-amber">Due</span></div>
+      <div class="list-item"><input type="checkbox" style="width:auto" onchange="taskDone(this)"><div class="li-main"><b>Complete MCI® Concrete assessment</b><small>Due in 5 days</small></div></div>
+      <div class="list-item"><input type="checkbox" style="width:auto" onchange="taskDone(this)"><div class="li-main"><b>Renew HSE compliance document</b><small>Due in 14 days</small></div></div>
+      <div class="list-item"><input type="checkbox" style="width:auto" onchange="taskDone(this)"><div class="li-main"><b>Confirm attendees - Q4 partner meeting</b><small>Due in 10 days</small></div></div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:16px"><h3>Announcements from Cortec Middle East</h3>
+    <div class="grid g3">
+      <div><span class="pill p-green">Programme</span><p style="margin-top:8px"><b>Q4 Partner Meeting</b> - agenda and registration now open.</p></div>
+      <div><span class="pill p-blue">Product</span><p style="margin-top:8px"><b>EcoShield® update</b> - new TDS and application guide published.</p></div>
+      <div><span class="pill p-amber">Brand</span><p style="margin-top:8px"><b>New Cortec ME logo</b> - updated brand pack available in Marketing Centre.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- KNOWLEDGE -->
+<div class="page" id="p-knowledge">
+  <h1 class="t">Knowledge Hub</h1><p class="sub">Approved, current technical and product resources. Every document shows its version, owner and access level.</p>
+  <div class="filters">
+    <input id="kq" placeholder="Search resources..." oninput="renderDocs()" style="min-width:260px">
+    <select id="kt" onchange="renderDocs()"><option value="">All technologies</option><option>VpCI®</option><option>MCI®</option><option>CorroLogic®</option><option>EcoLine®</option></select>
+    <select id="ki" onchange="renderDocs()"><option value="">All industries</option><option>Oil &amp; Gas</option><option>Construction</option><option>Power &amp; Water</option><option>Manufacturing</option></select>
+    <select id="kc" onchange="renderDocs()"><option value="">All content types</option><option>TDS</option><option>SDS</option><option>Method Statement</option><option>Case Study</option><option>Checklist</option><option>Presentation</option></select>
+  </div>
+  <div class="grid g3" id="docs"></div>
+</div>
+
+<!-- ACADEMY -->
+<div class="page" id="p-academy">
+  <h1 class="t">Partner Academy</h1><p class="sub">Role-based learning paths, assessments and certificates.</p>
+  <div class="grid g2">
+    <div class="grid" id="courses"></div>
+    <div>
+      <div class="cert"><div style="font-size:30px">🏅</div><b style="color:var(--deep)">Cortec Certified Applicator</b><p style="font-size:12px;color:var(--muted);margin:6px 0">Level 1 · Valid until 14 Mar 2027</p><button class="btn sm" onclick="toast('Certificate downloaded (PDF)')">Download certificate</button></div>
+      <div class="card" style="margin-top:16px"><h3>Team certification status</h3>
+        <div class="list-item"><div class="ic">AH</div><div class="li-main"><b>Ahmed Hassan</b><small>Level 1 certified</small></div><span class="pill p-green">Valid</span></div>
+        <div class="list-item"><div class="ic">RK</div><div class="li-main"><b>Rahul Kumar</b><small>Level 1 in progress</small></div><span class="pill p-amber">62%</span></div>
+        <div class="list-item"><div class="ic">MS</div><div class="li-main"><b>Mona Saleh</b><small>Expires in 21 days</small></div><span class="pill p-red">Renew</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OPPORTUNITIES -->
+<div class="page" id="p-opps">
+  <h1 class="t" style="display:flex;justify-content:space-between">Opportunity Centre <button class="btn" onclick="openModal('opp')">+ Register opportunity</button></h1>
+  <p class="sub">Register projects, confirm ownership and track Cortec support from qualification to outcome.</p>
+  <div class="filters" id="oppChips"></div>
+  <div class="card"><table><thead><tr><th>ID</th><th>Client / project</th><th>Industry</th><th>Application</th><th>Est. value</th><th>Stage</th><th>Updated</th></tr></thead><tbody id="oppBody"></tbody></table></div>
+</div>
+
+<!-- SUPPORT -->
+<div class="page" id="p-support">
+  <h1 class="t" style="display:flex;justify-content:space-between">Technical Support <button class="btn" onclick="openModal('ticket')">+ New request</button></h1>
+  <p class="sub">Structured requests are routed to the right Cortec expert. Normal requests: triage within 1 business day.</p>
+  <div class="grid g2">
+    <div class="card"><h3>My requests</h3><table><thead><tr><th>Ref</th><th>Subject</th><th>Urgency</th><th>Owner</th><th>Status</th></tr></thead><tbody id="tixBody"></tbody></table></div>
+    <div class="card" id="tixDetail"><h3>Request detail</h3><p class="empty">Select a request to view its timeline.</p></div>
+  </div>
+</div>
+
+<!-- MARKETING -->
+<div class="page" id="p-marketing">
+  <h1 class="t">Marketing Centre</h1><p class="sub">Approved brand assets, campaign kits and co-branding requests.</p>
+  <div class="filters"><button class="chip active" onclick="chip(this)">All</button><button class="chip" onclick="chip(this)">Brand</button><button class="chip" onclick="chip(this)">Campaign kits</button><button class="chip" onclick="chip(this)">Presentations</button><button class="chip" onclick="chip(this)">Social</button></div>
+  <div class="grid g4">
+    <div class="card"><div class="asset" style="background:var(--deep)">LOGO PACK</div><b>Cortec ME logo pack 2026</b><p style="color:var(--muted);font-size:12px;margin:4px 0 10px">PNG, SVG, EPS · partner usage rules</p><button class="btn sm" onclick="toast('Logo pack downloaded')">Download</button></div>
+    <div class="card"><div class="asset" style="background:var(--green)">CAMPAIGN</div><b>Layup &amp; Preservation campaign kit</b><p style="color:var(--muted);font-size:12px;margin:4px 0 10px">Email, LinkedIn posts, flyer</p><button class="btn sm" onclick="toast('Campaign kit downloaded')">Download</button></div>
+    <div class="card"><div class="asset" style="background:#0D6A4F">DECK</div><b>Oil &amp; Gas solutions presentation</b><p style="color:var(--muted);font-size:12px;margin:4px 0 10px">PPTX · 24 slides · editable</p><button class="btn sm" onclick="toast('Presentation downloaded')">Download</button></div>
+    <div class="card"><div class="asset" style="background:var(--blue)">SOCIAL</div><b>MCI® concrete social templates</b><p style="color:var(--muted);font-size:12px;margin:4px 0 10px">8 LinkedIn/Instagram templates</p><button class="btn sm" onclick="toast('Templates downloaded')">Download</button></div>
+  </div>
+  <div class="grid g2e" style="margin-top:16px">
+    <div class="card"><h3>Request co-branded material</h3><p style="color:var(--muted);font-size:13px;line-height:1.5">Submit a request; Cortec marketing reviews and returns approved artwork within 5 business days.</p><button class="btn" style="margin-top:12px" onclick="openModal('cobrand')">Start request</button></div>
+    <div class="card"><h3>Event support</h3><p style="color:var(--muted);font-size:13px;line-height:1.5">Request brochures, samples, roll-ups or a Cortec technical speaker for exhibitions and client seminars.</p><button class="btn" style="margin-top:12px" onclick="openModal('event')">Request support</button></div>
+  </div>
+</div>
+
+<!-- COMMUNITY -->
+<div class="page" id="p-community">
+  <h1 class="t">Community</h1><p class="sub">Partner updates, expert sessions and Q&amp;A.</p>
+  <div class="grid g2">
+    <div class="card"><h3>Partner Q&amp;A</h3>
+      <textarea id="postText" rows="2" placeholder="Ask the partner community or Cortec experts..."></textarea>
+      <div style="text-align:right;margin:8px 0 6px"><button class="btn sm" onclick="addPost()">Post</button></div>
+      <div id="posts">
+        <div class="post"><b>Rahul Kumar</b> <span class="pill p-gray">CSP</span><p>Recommended dosage of VpCI®-649 for closed-loop cooling systems during a 6-month layup?</p><small>✓ Answered by Cortec Technical · 2 days ago · 4 replies</small></div>
+        <div class="post"><b>Sara Al Mansoori</b> <span class="pill p-gray">CIA</span><p>Has anyone used CorroLogic® Fogging for heat exchanger shells offshore? Looking for inspection intervals.</p><small>5 days ago · 2 replies</small></div>
+      </div>
+    </div>
+    <div class="card"><h3>Upcoming expert sessions</h3>
+      <div class="list-item"><div class="ic">26</div><div class="li-main"><b>Tank bottom protection</b><small>Webinar · 26 Nov</small></div><button class="btn sm ghost" onclick="toast('Registered')">Join</button></div>
+      <div class="list-item"><div class="ic">03</div><div class="li-main"><b>Concrete repair with MCI®</b><small>Workshop · 3 Dec · Dubai</small></div><button class="btn sm ghost" onclick="toast('Registered')">Join</button></div>
+      <div class="list-item"><div class="ic">10</div><div class="li-main"><b>Q4 Partner Meeting</b><small>Hybrid · 10 Dec</small></div><button class="btn sm ghost" onclick="toast('Registered')">Join</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- REPORTS -->
+<div class="page" id="p-reports">
+  <h1 class="t">Reports</h1><p class="sub">Your organisation's activity and programme performance (2026).</p>
+  <div class="grid g4" style="margin-bottom:16px">
+    <div class="card kpi"><div class="n">12</div><div class="l">Opportunities registered</div></div>
+    <div class="card kpi"><div class="n">5</div><div class="l">Projects won</div></div>
+    <div class="card kpi"><div class="n">96%</div><div class="l">Support triaged on time</div></div>
+    <div class="card kpi"><div class="n">148</div><div class="l">Resources downloaded</div></div>
+  </div>
+  <div class="grid g2e">
+    <div class="card"><h3>Opportunities registered by quarter</h3><div class="chart"><div style="height:35%"><em>2</em><span>Q1</span></div><div style="height:55%"><em>3</em><span>Q2</span></div><div style="height:45%"><em>3</em><span>Q3</span></div><div style="height:70%"><em>4</em><span>Q4</span></div></div></div>
+    <div class="card"><h3>Training completion by user</h3><div class="chart"><div style="height:100%"><em>100%</em><span>Ahmed</span></div><div style="height:62%"><em>62%</em><span>Rahul</span></div><div style="height:88%"><em>88%</em><span>Mona</span></div><div style="height:40%"><em>40%</em><span>Omar</span></div></div></div>
+  </div>
+</div>
+
+<!-- ORG -->
+<div class="page" id="p-org">
+  <h1 class="t">My Organisation</h1><p class="sub">Profile, capabilities, users and compliance documents.</p>
+  <div class="grid g2e">
+    <div class="card"><h3>Company profile <button class="btn sm ghost" onclick="toast('Profile saved')">Save</button></h3>
+      <div class="row"><div><label>Company</label><input id="orgName" value="Gulf Integrity Services LLC"></div><div><label>Partner type</label><input id="orgType" value="Channel Service Provider" disabled></div></div>
+      <div class="row"><div><label>Territory</label><input value="UAE, Oman"></div><div><label>Partner manager</label><input value="Ahmed Hassan"></div></div>
+      <label>Capabilities</label><div class="filters"><span class="chip active">Equipment preservation</span><span class="chip active">Hydrotesting</span><span class="chip active">Tank protection</span><span class="chip">Concrete repair</span><span class="chip">NDT</span></div>
+    </div>
+    <div class="card"><h3>Users <button class="btn sm" onclick="toast('Invitation request sent to Cortec for approval')">+ Invite user</button></h3>
+      <div class="list-item"><div class="ic">AH</div><div class="li-main"><b>Ahmed Hassan</b><small>Partner manager · MFA on</small></div><span class="pill p-green">Active</span></div>
+      <div class="list-item"><div class="ic">RK</div><div class="li-main"><b>Rahul Kumar</b><small>Partner user · MFA on</small></div><span class="pill p-green">Active</span></div>
+      <div class="list-item"><div class="ic">OM</div><div class="li-main"><b>Omar Malik</b><small>Partner user</small></div><span class="pill p-amber">Pending</span></div>
+      <h3 style="margin-top:18px">Compliance documents</h3>
+      <div class="list-item"><div class="ic">PDF</div><div class="li-main"><b>Trade licence</b><small>Expires Jun 2027</small></div><span class="pill p-green">Valid</span></div>
+      <div class="list-item"><div class="ic">PDF</div><div class="li-main"><b>HSE certificate</b><small>Expires in 14 days</small></div><button class="btn sm ghost" onclick="toast('Upload dialog opened')">Upload new</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN -->
+<div class="page" id="p-admin">
+  <h1 class="t">Admin Console</h1><p class="sub">Cortec-only: partner approvals, content governance and audit.</p>
+  <div class="grid g4" style="margin-bottom:16px">
+    <div class="card kpi"><div class="n">18</div><div class="l">Active partner organisations</div></div>
+    <div class="card kpi"><div class="n" id="a-pend">3</div><div class="l">Pending approvals</div></div>
+    <div class="card kpi"><div class="n">7</div><div class="l">Content items due for review</div></div>
+    <div class="card kpi"><div class="n">84%</div><div class="l">Monthly active partners</div></div>
+  </div>
+  <div class="grid g2e">
+    <div class="card"><h3>Partnership requests</h3><div id="approvals"></div></div>
+    <div class="card"><h3>Content governance queue</h3>
+      <div class="stepper"><div class="done">Draft</div><div class="on">Technical review</div><div>Brand/legal</div><div>Publish</div></div>
+      <div class="list-item"><div class="ic">PDF</div><div class="li-main"><b>VpCI®-337 Fogging Method v2</b><small>Owner: Technical · awaiting review</small></div><button class="btn sm" onclick="approveContent(this)">Approve</button></div>
+      <div class="list-item"><div class="ic">PPT</div><div class="li-main"><b>Power &amp; Water deck 2027</b><small>Owner: Marketing · awaiting review</small></div><button class="btn sm" onclick="approveContent(this)">Approve</button></div>
+      <h3 style="margin-top:18px">Recent audit log</h3>
+      <table><tr><td>06:12</td><td>ahmed@gulfintegrity.ae</td><td>Downloaded Method Statement v3.2</td></tr><tr><td>05:48</td><td>admin@cortec-me.com</td><td>Role change: Omar Malik → Partner user</td></tr><tr><td>05:20</td><td>sara@ndtpro.com</td><td>Sign-in (MFA)</td></tr></table>
+    </div>
+  </div>
+</div>
+
+    </main>
+  </div>
+</section>
+
+<!-- Notifications drawer -->
+<div class="drawer" id="drawer"><h3 style="color:var(--deep);margin-bottom:10px;display:flex;justify-content:space-between">Notifications <button class="btn sm ghost" onclick="toggleDrawer()">✕</button></h3>
+  <div class="list-item"><div class="ic">✓</div><div class="li-main"><b>TR-1042 answered</b><small>Cortec Technical replied · 1h ago</small></div></div>
+  <div class="list-item"><div class="ic">📈</div><div class="li-main"><b>OPP-218 ownership confirmed</b><small>Assigned to you · 4h ago</small></div></div>
+  <div class="list-item"><div class="ic">📄</div><div class="li-main"><b>Method Statement v3.2 published</b><small>Replaces v3.1 · yesterday</small></div></div>
+</div>
+
+<!-- Modal -->
+<div class="modal-bg" id="modalBg" onclick="if(event.target===this)closeModal()"><div class="modal" id="modal"></div></div>
+<div class="toast" id="toast"></div>
+
+<script src="assets/js/app.js"></script>
+</body>
+</html>
